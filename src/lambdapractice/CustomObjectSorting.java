@@ -19,7 +19,7 @@ public class CustomObjectSorting {
         SimpleDateFormat sf = new SimpleDateFormat("dd/MM/yyyy");
 
         Employee emp3 = new Employee(3,"chetan",sf.parse("28/06/1990"),"spk@gmail.com","mumbai");
-        Employee emp1 = new Employee(1,"babu",sf.parse("28/03/1991"),"bab@gmail.com","Salem");
+        Employee emp1 = new Employee(11,"babu",sf.parse("28/03/1991"),"bab@gmail.com","Salem");
         Employee emp2 = new Employee(2,"suren",sf.parse("28/05/1990"),"basds@gmail.com","kochi");
         Employee emp4 = new Employee(4,"bhagat",sf.parse("28/07/1990"),"lmer@gmail.com","Salem");
 
@@ -44,14 +44,8 @@ public class CustomObjectSorting {
         employeeTreeSetSortByDOB.stream().forEach(input -> System.out.println("EmpId"+ input.getId()+ " "+"EmpName"+input.getName()));
 
         System.out.println();
-        //Sort By DOB
-        TreeSet<Employee> employeeTreeSetSortById = new TreeSet<>((o1, o2) -> {
-            if(o1.getId()>(o2.getId()))
-                return 1;
-            else if (o1.getId()<(o2.getId()))
-                return -1;
-            else return 0;
-        });
+        //Sort By ID-Desc Order
+        TreeSet<Employee> employeeTreeSetSortById = new TreeSet<>((o1, o2) -> o2.getId() - o1.getId());
         employeeTreeSetSortById.addAll(employeeList);
         System.out.println("Employee Sort by Id");
         employeeTreeSetSortById.stream().forEach(input -> System.out.println("EmpId"+ input.getId()+" "+"EmpName"+input.getName()));
